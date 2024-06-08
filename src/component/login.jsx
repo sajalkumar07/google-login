@@ -1,6 +1,13 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
+const containerStyle = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "100vh", // This will center the button vertically in the viewport
+};
+
 const buttonStyle = {
   display: "flex",
   alignItems: "center",
@@ -16,8 +23,6 @@ const buttonStyle = {
 
 const iconStyle = {
   marginRight: "10px",
-  backgroundColor: "white",
-  borderRadius: "50%",
   padding: "5px",
 };
 
@@ -25,7 +30,7 @@ const LoginButton = () => {
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
 
   return (
-    <div>
+    <div style={containerStyle}>
       {!isAuthenticated ? (
         <button style={buttonStyle} onClick={() => loginWithRedirect()}>
           <div style={iconStyle}>
